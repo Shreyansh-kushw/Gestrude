@@ -27,6 +27,8 @@ while True:
     if not isTrue:
         break
 
+    frame = cv2.flip(frame,1)
+
     frame_rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
     results = hands.process(frame_rgb)
 
@@ -55,7 +57,6 @@ while True:
             h, w, _ = frame.shape # getting the shapes of the images -> height, width, channels (color channels - generally 3)
             wrist = hand_landmarks.landmark[0] # getting the normalized coordinates for the 0th landmark (the landmark of the wrist)
             x, y = int(wrist.x * w), int(wrist.y * h) # getting the absolute coordinates of the wrist using the dimensions of the image
-
             cv2.putText(frame, gesture, (x, y - 20), cv2.FONT_HERSHEY_SIMPLEX, 1.2, (0,255,0), 3) # putting the text.
 
     cv2.imshow("Multi-Hand Gesture Recognition", frame)
