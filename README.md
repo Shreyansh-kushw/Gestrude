@@ -1,2 +1,2 @@
 # Gestrude
-A self trained hand gesture recognition software.
+A opencv-python and mediapipe based hand gesture recognition software.
